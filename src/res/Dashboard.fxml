@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="460.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17"
+            fx:controller="app.controllers.DashboardController">
+    <children>
+        <Text fill="#515151" layoutX="47.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome"
+              textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="24.0"/>
+            </font>
+        </Text>
+        <Text fx:id="txtUserName" fill="#f46d6d" layoutX="24.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="User1" textAlignment="CENTER" wrappingWidth="152.12057495117188">
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Text>
+        <Text fx:id="txtUserType" fill="#f46d6d" layoutX="24.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Admin" textAlignment="CENTER" wrappingWidth="152.12057495117188">
+            <font>
+                <Font size="17.0"/>
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

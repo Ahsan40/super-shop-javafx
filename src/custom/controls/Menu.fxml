@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="312.0" prefWidth="243.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="custom.controls.MenuController">
+   <children>
+      <BorderPane layoutY="50.0" onMouseClicked="#homeAction" prefHeight="71.0" prefWidth="242.0" style="-fx-background-color: skyblue;">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home" textAlignment="CENTER" wrappingWidth="241.59374809265137" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <BorderPane layoutY="122.0" onMouseClicked="#settingsAction" prefHeight="71.0" prefWidth="242.0" style="-fx-background-color: lightgreen;">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Settings" textAlignment="CENTER" wrappingWidth="241.59374809265137" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+      <BorderPane layoutY="194.0" onMouseClicked="#aboutAction" prefHeight="71.0" prefWidth="242.0" style="-fx-background-color: gray;">
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="About" textAlignment="CENTER" wrappingWidth="241.59374809265137" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="460.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17"
+            fx:controller="app.controllers.AdminHomeController">
+    <children>
+        <TableView fx:id="table" layoutX="14.0" layoutY="14.0" prefHeight="429.0" prefWidth="720.0">
+            <columns>
+                <TableColumn fx:id="colName" prefWidth="183.2727632522583" text="Name"/>
+                <TableColumn fx:id="colEmail" prefWidth="274.0363311767578" text="Email"/>
+                <TableColumn fx:id="colMobile" prefWidth="154.47271728515625" text="Mobile"/>
+                <TableColumn fx:id="colType" prefWidth="112.5819091796875" text="Type"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

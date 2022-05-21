@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#ff5a5a" layoutX="74.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server is not running!" textAlignment="CENTER" wrappingWidth="502.53923416137695">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#7d7d7d" layoutX="74.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please restart the app after start the server." textAlignment="CENTER" wrappingWidth="502.53923416137695">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
