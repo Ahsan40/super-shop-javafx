@@ -10,4 +10,6 @@ module superShop.javafx {
     opens app.utils to javafx.fxml;
     exports custom.controls;
     opens custom.controls to javafx.fxml;
+    exports app.classes;
+    opens app.classes to javafx.fxml;
 }
