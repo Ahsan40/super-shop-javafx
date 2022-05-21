@@ -2,9 +2,7 @@ package app.controllers;
 
 import app.main.Config;
 import app.main.Main;
-import app.main.User;
-import app.utils.FileIO;
-import app.utils.Size;
+import app.classes.User;
 import app.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

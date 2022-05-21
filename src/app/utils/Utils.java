@@ -2,7 +2,7 @@ package app.utils;
 
 import app.main.Config;
 import app.main.Main;
-import app.main.User;
+import app.classes.User;
 
 import java.io.File;
 import java.io.IOException;

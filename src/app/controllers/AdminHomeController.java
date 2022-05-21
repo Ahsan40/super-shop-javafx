@@ -1,7 +1,7 @@
 package app.controllers;
 
 import app.main.Main;
-import app.main.User;
+import app.classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

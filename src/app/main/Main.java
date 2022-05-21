@@ -1,5 +1,6 @@
 package app.main;
 
+import app.classes.User;
 import app.utils.SceneManager;
 import app.utils.Size;
 import app.utils.Utils;

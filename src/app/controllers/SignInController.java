@@ -2,8 +2,7 @@ package app.controllers;
 
 import app.main.Config;
 import app.main.Main;
-import app.main.User;
-import app.utils.Size;
+import app.classes.User;
 import app.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,7 +37,7 @@ public class SignInController {
         boolean result = Utils.checkLogin(new User(tfEmail.getText(), Utils.sha256(tfPass.getText())), Main.receiveObj, Main.sendObj);
         if (result) {
                 System.out.println(" - Logging in to User Control Panel.");
-                Main.sceneMan.open("home", Config.dashboardPage);
+                Main.sceneMan.open("home", Config.dashboardPage, 460, 750);
         } else {
             txtError.setText("Login Failed!");
         }
