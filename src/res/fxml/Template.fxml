@@ -7,11 +7,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane onMouseClicked="#btnHomeAction" prefHeight="460.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.DashboardController">
+<AnchorPane prefHeight="460.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.DashboardController">
    <children>
       <AnchorPane layoutX="7.0" layoutY="161.0" prefHeight="280.0" prefWidth="209.0" style="-fx-background-color: #F2F2F2;">
          <children>
-            <AnchorPane layoutY="1.0" onMouseClicked="#btnHomeAction" prefHeight="67.0" prefWidth="206.0" style="-fx-background-color: skyblue; -fx-background-radius: 20;">
+            <AnchorPane layoutY="1.0" onMouseClicked="#btnHomeAction" prefHeight="67.0" prefWidth="206.0" style="-fx-background-color: lightgreen; -fx-background-radius: 20;">
                <children>
                   <Text layoutX="1.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" textAlignment="CENTER" wrappingWidth="206.83635646347193">
                      <font>
@@ -58,7 +58,7 @@
             </Text>
             <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="9.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/009-money.png" />
+                  <Image url="@../img/009-money.png" />
                </image>
             </ImageView>
          </children>
@@ -72,20 +72,21 @@
             </Text>
             <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="12.0" layoutY="11.0" onMouseClicked="#btnProfileAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/003-user.png" />
+                  <Image url="@../img/003-user.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
+      <AnchorPane layoutX="233.0" layoutY="188.0" prefHeight="174.0" prefWidth="241.0" style="-fx-border-color: #F24A72; -fx-border-radius: 50;" />
+      <AnchorPane layoutX="485.0" layoutY="188.0" prefHeight="174.0" prefWidth="241.0" style="-fx-border-color: #00AFC1; -fx-border-radius: 50;" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="705.0" layoutY="416.0" onMouseClicked="#btnLogoutAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/001-logout.png" />
+            <Image url="@../img/001-logout.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="633.0" layoutY="7.0" prefHeight="100.0" prefWidth="100.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: lightgreen; -fx-border-color: #F24A72;" />
       <ImageView fitHeight="67.0" fitWidth="80.0" layoutX="645.0" layoutY="29.0" onMouseClicked="#btnCartAction" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/005-carts.png" />
+            <Image url="@../img/005-carts.png" />
          </image>
       </ImageView>
       <Circle fill="#fff41f" layoutX="712.0" layoutY="33.0" opacity="0.58" radius="20.0" stroke="BLACK" strokeType="INSIDE" />

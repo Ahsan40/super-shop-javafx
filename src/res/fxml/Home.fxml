@@ -15,7 +15,7 @@
             <children>
                 <ImageView disable="true" fitHeight="402.0" fitWidth="264.0" layoutX="-7.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@image.png" />
+                        <Image url="@../img/image.png" />
                     </image>
                 </ImageView>
             </children>
