@@ -71,6 +71,11 @@ public class CartController implements Initializable {
 
     @FXML
     void btnBuyAction(ActionEvent event) {
+        if (Main.cart.getCartSize() == 0) {
+            Utils.alert("Warning!", "Please add products first to buy!", "warning");
+            return;
+        }
+
         if (Main.user.getBalance() < Main.cart.getTotal())
             Utils.alert("Warning!", "Insufficient Balance!", "warning");
         else {
@@ -86,9 +91,12 @@ public class CartController implements Initializable {
     @FXML
     void btnRemoveAction(ActionEvent event) {
         Product p = table.getSelectionModel().getSelectedItem();
-        Main.cart.remove(p);
-        table.getItems().remove(p);
-        txtTotalAmount.setText(Main.cart.getTotal() + "");
+        if (p != null) {
+            Main.cart.remove(p);
+            table.getItems().remove(p);
+            txtTotalAmount.setText(Main.cart.getTotal() + "");
+        } else
+            Utils.alert("Warning!", "Please select and item first!", "warning");
     }
 
 
