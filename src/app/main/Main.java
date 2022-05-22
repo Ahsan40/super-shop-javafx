@@ -47,9 +47,9 @@ public class Main extends Application {
             receiveObj = new ObjectInputStream(inputStream);
 
             // Determining Page to Open
-            sceneMan.open("home", Config.homePage);
+            sceneMan.open("home", Config.homePage, 400, 650);
         } catch (Exception e) {
-            sceneMan.open("error", Config.errorPage);
+            sceneMan.open("error", Config.errorPage, 400, 650);
         }
     }
 

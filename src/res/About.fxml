@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="7.0" layoutY="161.0" prefHeight="280.0" prefWidth="209.0" style="-fx-background-color: #F2F2F2;">
          <children>
-            <AnchorPane layoutY="1.0" onMouseClicked="#btnHomeAction" prefHeight="67.0" prefWidth="206.0" style="-fx-background-color: lightgreen; -fx-background-radius: 20;">
+            <AnchorPane layoutY="1.0" onMouseClicked="#btnHomeAction" prefHeight="67.0" prefWidth="206.0" style="-fx-background-color: skyblue; -fx-background-radius: 20;">
                <children>
                   <Text layoutX="1.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" textAlignment="CENTER" wrappingWidth="206.83635646347193">
                      <font>
@@ -38,7 +38,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="224.0" onMouseClicked="#btnAboutAction" prefHeight="67.0" prefWidth="206.0" style="-fx-background-color: skyblue; -fx-background-radius: 20;">
+            <AnchorPane layoutY="224.0" onMouseClicked="#btnAboutAction" prefHeight="67.0" prefWidth="206.0" style="-fx-background-color: lightgreen; -fx-background-radius: 20;">
                <children>
                   <Text layoutX="1.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About" textAlignment="CENTER" wrappingWidth="206.83635646347193">
                      <font>

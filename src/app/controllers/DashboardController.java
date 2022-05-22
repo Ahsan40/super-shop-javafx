@@ -1,5 +1,7 @@
 package app.controllers;
 
+import app.main.Config;
+import app.main.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -18,18 +20,22 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
+    void btnHomeAction(MouseEvent event) {
+        Main.sceneMan.open("home", Config.dashboardPage);
+    }
+    @FXML
     void btnAboutAction(MouseEvent event) {
-
+        Main.sceneMan.open("about", Config.aboutPage);
     }
 
     @FXML
     void btnCartAction(MouseEvent event) {
-
+        Main.sceneMan.open("cart", Config.cartPage);
     }
 
     @FXML
     void btnHistoryAction(MouseEvent event) {
-
+        Main.sceneMan.open("history", Config.historyPage);
     }
 
     @FXML
@@ -39,11 +45,11 @@ public class DashboardController implements Initializable {
 
     @FXML
     void btnProfileAction(MouseEvent event) {
-
+        Main.sceneMan.open("profile", Config.profilePage);
     }
 
     @FXML
     void btnShopAction(MouseEvent event) {
-
+        Main.sceneMan.open("shop", Config.shopPage);
     }
 }
