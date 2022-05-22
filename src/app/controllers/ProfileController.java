@@ -40,7 +40,7 @@ public class ProfileController implements Initializable {
         txtMobile.setText(Main.user.getMobile());
         txtEmail.setText(Main.user.getEmail());
         txtCartItemsCount.setText(Main.cart.getCartSize() + "");
-        txtBalance.setText(Main.balance + "");
+        txtBalance.setText(Main.user.getBalance() + "");
     }
 
     @FXML
@@ -49,8 +49,8 @@ public class ProfileController implements Initializable {
         if (b < 0)
             Utils.alert("Error!", "Invalid amount!", "error");
         else {
-            Main.balance += b;
-            txtBalance.setText(Main.balance + "");
+            Main.user.addBalance(b);
+            txtBalance.setText(Main.user.getBalance() + "");
             Operations.addBalance(b);
         }
     }

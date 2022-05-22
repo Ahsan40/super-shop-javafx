@@ -55,7 +55,7 @@ public class ShopController implements Initializable {
         // Init
         txtUserName.setText(Main.user.getName());
         txtCartItemsCount.setText(Main.cart.getCartSize() + "");
-        txtBalance.setText(Main.balance + "");
+        txtBalance.setText(Main.user.getBalance() + "");
 
         // Table
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));

@@ -23,7 +23,6 @@ import java.util.Objects;
 public class Main extends Application {
     public static User user;
     public static Cart cart;
-    public static double balance;
     public static HashMap<String, User> users;
     public static ArrayList<Product> history;
     public static ArrayList<Product> allProducts;
@@ -40,7 +39,6 @@ public class Main extends Application {
     public void start(Stage stage) throws URISyntaxException {
         // temp init
         cart = new Cart();
-        balance = 0;
         history = new ArrayList<>();
 
         // Scene Configs
