@@ -2,6 +2,9 @@ package app.controllers;
 
 import app.main.Config;
 import app.main.Main;
+import app.main.Operations;
+import app.utils.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -10,7 +13,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable {
+public class ProfileController implements Initializable {
     @FXML
     private Text txtCartItemsCount;
 
@@ -18,19 +21,49 @@ public class DashboardController implements Initializable {
     private Text txtBalance;
 
     @FXML
+    private Text txtEmail;
+
+    @FXML
+    private Text txtMobile;
+
+    @FXML
+    private Text txtName;
+
+    @FXML
     private Text txtUserName;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Init
+        txtName.setText(Main.user.getName());
         txtUserName.setText(Main.user.getName());
+        txtMobile.setText(Main.user.getMobile());
+        txtEmail.setText(Main.user.getEmail());
         txtCartItemsCount.setText(Main.cart.getCartSize() + "");
         txtBalance.setText(Main.balance + "");
     }
 
     @FXML
+    void btnAddBalance(ActionEvent event) {
+        double b = Utils.inputAlert();
+        if (b < 0)
+            Utils.alert("Error!", "Invalid amount!", "error");
+        else {
+            Main.balance += b;
+            txtBalance.setText(Main.balance + "");
+            Operations.addBalance(b);
+        }
+    }
+
+
+
+
+
+    /// Common Functions
+
+    @FXML
     void btnHomeAction(MouseEvent event) {
-//        Main.sceneMan.open("home", Config.dashboardPage);
+        Main.sceneMan.open("home", Config.dashboardPage);
     }
     @FXML
     void btnAboutAction(MouseEvent event) {
@@ -54,7 +87,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void btnProfileAction(MouseEvent event) {
-        Main.sceneMan.open("profile", Config.profilePage);
+//        Main.sceneMan.open("profile", Config.profilePage);
     }
 
     @FXML

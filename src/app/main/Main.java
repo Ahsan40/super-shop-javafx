@@ -1,5 +1,6 @@
 package app.main;
 
+import app.classes.Cart;
 import app.classes.User;
 import app.utils.SceneManager;
 import app.utils.Size;
@@ -19,6 +20,8 @@ import java.util.Objects;
 
 public class Main extends Application {
     public static User user;
+    public static Cart cart;
+    public static double balance;
     public static HashMap<String, User> users;
     public static SceneManager sceneMan;
     public static Socket sc;
@@ -31,6 +34,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws URISyntaxException {
+        // temp init
+        cart = new Cart();
+        balance = 0;
+
         // Scene Configs
         stage.setTitle(Config.title + " " + Config.version);
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource(Config.icon)).toURI().toString()));

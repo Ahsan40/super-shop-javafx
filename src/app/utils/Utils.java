@@ -3,6 +3,8 @@ package app.utils;
 import app.main.Config;
 import app.main.Main;
 import app.classes.User;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextInputDialog;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.Optional;
 
 public class Utils {
     public static String sha256(final String base) {
@@ -53,7 +56,6 @@ public class Utils {
         return false;
     }
 
-
     public static boolean removeFile(String path) {
         File f = new File(path);
         return f.delete();
@@ -64,5 +66,51 @@ public class Utils {
             System.out.println(" - Deleted temp user data " + Config.userTempData);
         System.out.println(" - Exiting from program");
         System.exit(0);
+    }
+
+
+    // alerts
+    public static void alert(String title, String text, String type) {
+        // Alert Type
+        Alert alert;
+        if (type.equalsIgnoreCase("error"))
+            alert = new Alert(Alert.AlertType.ERROR);
+        else if (type.equalsIgnoreCase("success"))
+            alert = new Alert(Alert.AlertType.INFORMATION);
+        else
+            alert = new Alert(Alert.AlertType.WARNING);
+
+        // Alert Window Settings
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(text);
+
+        alert.showAndWait();
+    }
+
+    public static double inputAlert(String title, String query) {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(title);
+        dialog.setHeaderText(null);
+        dialog.setContentText(query);
+
+        // Traditional way to get the response value.
+        Optional<String> result = dialog.showAndWait();
+
+        if (result.isEmpty()) {
+            // action canceled
+            return 0;
+        }
+        try {
+            return Double.parseDouble(result.get());
+        } catch (NumberFormatException e) {
+            alert("Error!", "Invalid Input! Please try again!", "error");
+        }
+        return 0;
+    }
+
+
+    public static double inputAlert() {
+        return inputAlert("Input", "Please Money to Add: ");
     }
 }
