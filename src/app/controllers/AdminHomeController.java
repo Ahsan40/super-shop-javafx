@@ -48,9 +48,9 @@ public class AdminHomeController implements Initializable {
 
     public ObservableList<User> getUsers() {
         ObservableList<User> allUsers = FXCollections.observableArrayList();
-        for (Map.Entry<String, User> u : Main.users.entrySet()) {
-            allUsers.addAll(u.getValue());
-        }
+//        for (Map.Entry<String, User> u : Main.users.entrySet()) {
+//            allUsers.addAll(u.getValue());
+//        }
 
         // sort by Line No.
         allUsers.sort(Comparator.comparing(User::getName));
