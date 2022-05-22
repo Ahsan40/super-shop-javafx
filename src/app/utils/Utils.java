@@ -43,7 +43,7 @@ public class Utils {
             // reading response
             String response = (String) receiveObj.readObject();
             System.out.println(" - Received response: " + response);
-            if (response.contains("SUCCESS")) {
+            if (response.equalsIgnoreCase("SUCCESS")) {
                 System.out.println(" - Received logged user info from server");
                 Main.user = (User) receiveObj.readObject();
                 System.out.println(" - Saving user info for later use");
