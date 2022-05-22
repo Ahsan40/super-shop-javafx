@@ -49,9 +49,8 @@ public class ProfileController implements Initializable {
         if (b < 0)
             Utils.alert("Error!", "Invalid amount!", "error");
         else {
-            Main.user.addBalance(b);
-            txtBalance.setText(Main.user.getBalance() + "");
             Operations.addBalance(b);
+            txtBalance.setText(Main.user.getBalance() + "");
         }
     }
 
