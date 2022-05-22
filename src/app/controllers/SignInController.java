@@ -37,7 +37,10 @@ public class SignInController {
         boolean result = Utils.checkLogin(new User(tfEmail.getText(), Utils.sha256(tfPass.getText())), Main.receiveObj, Main.sendObj);
         if (result) {
                 System.out.println(" - Logging in to User Control Panel.");
-                Main.sceneMan.open("home", Config.dashboardPage, 460, 750);
+                if (Main.user.getType().equalsIgnoreCase("admin"))
+                    Main.sceneMan.open("admin", Config.adminHomePage);
+                else
+                    Main.sceneMan.open("home", Config.dashboardPage);
         } else {
             txtError.setText("Login Failed!");
         }
