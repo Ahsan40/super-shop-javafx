@@ -43,7 +43,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="704.0" layoutY="409.0" onDragDetected="#btnLogoutAction" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="704.0" layoutY="409.0" onMouseClicked="#btnLogoutAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/001-logout.png" />
          </image>
