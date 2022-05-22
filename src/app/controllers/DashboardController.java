@@ -3,6 +3,7 @@ package app.controllers;
 import app.classes.Product;
 import app.main.Config;
 import app.main.Main;
+import app.main.Operations;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -65,7 +66,7 @@ public class DashboardController implements Initializable {
 
     @FXML
     void btnLogoutAction(MouseEvent event) {
-
+        Operations.logout();
     }
 
     @FXML

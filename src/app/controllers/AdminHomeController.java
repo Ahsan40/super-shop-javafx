@@ -3,6 +3,7 @@ package app.controllers;
 import app.classes.Product;
 import app.main.Main;
 import app.classes.User;
+import app.main.Operations;
 import app.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -103,6 +105,11 @@ public class AdminHomeController implements Initializable {
             Utils.alert("Warning!", "Please add products first to remove!", "warning");
     }
 
+    @FXML
+    void btnLogoutAction(MouseEvent event) {
+        Operations.logout();
+    }
+    
     public ObservableList<Product> getProduct() {
         ObservableList<Product> products = FXCollections.observableArrayList();
         products.addAll(Main.allProducts);

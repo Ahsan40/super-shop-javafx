@@ -125,7 +125,7 @@ public class ShopController implements Initializable {
 
     @FXML
     void btnLogoutAction(MouseEvent event) {
-
+        Operations.logout();
     }
 
     @FXML

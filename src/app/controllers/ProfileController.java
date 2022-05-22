@@ -81,7 +81,7 @@ public class ProfileController implements Initializable {
 
     @FXML
     void btnLogoutAction(MouseEvent event) {
-
+        Operations.logout();
     }
 
     @FXML

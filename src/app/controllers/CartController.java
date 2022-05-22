@@ -106,6 +106,7 @@ public class CartController implements Initializable {
 
     @FXML
     void btnHomeAction(MouseEvent event) {
+        Main.sceneMan.reload("home");
         Main.sceneMan.open("home", Config.dashboardPage);
     }
 
@@ -121,12 +122,13 @@ public class CartController implements Initializable {
 
     @FXML
     void btnHistoryAction(MouseEvent event) {
+        Main.sceneMan.reload("history");
         Main.sceneMan.open("history", Config.historyPage);
     }
 
     @FXML
     void btnLogoutAction(MouseEvent event) {
-
+        Operations.logout();
     }
 
     @FXML

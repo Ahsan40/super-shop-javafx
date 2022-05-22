@@ -17,8 +17,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
@@ -67,6 +69,13 @@ public class HistoryController  implements Initializable {
     }
 
     private ObservableList<Product> getProducts () {
+        try {
+            Main.sendObj.writeObject("getHistory");
+            Main.sendObj.writeObject(Main.user);
+            Main.history = (ArrayList<Product>) Main.receiveObj.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         ObservableList<Product> list = FXCollections.observableArrayList();
         list.addAll(Main.history);
         list.sort(Comparator.comparing(Product::getName));
@@ -117,7 +126,7 @@ public class HistoryController  implements Initializable {
 
     @FXML
     void btnLogoutAction(MouseEvent event) {
-
+        Operations.logout();
     }
 
     @FXML

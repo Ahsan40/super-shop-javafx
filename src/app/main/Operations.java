@@ -52,4 +52,12 @@ public class Operations {
             throw new RuntimeException(e);
         }
     }
+
+    public static void logout() {
+        Main.user = null;
+        Main.allProducts = null;
+        Main.cart = null;
+        Main.history = null;
+        Main.sceneMan.open("login", Config.signInPage);
+    }
 }
