@@ -6,11 +6,7 @@ import app.classes.Product;
 import java.io.IOException;
 
 public class Operations {
-    public static String addBalance(double amount) {
-        String msg = "SUCCESS";
-        if (amount < 0)
-            return "Invalid Amount!";
-
+    public static void addBalance(double amount) {
         try {
             Main.sendObj.writeObject("addBalance");
             Main.sendObj.writeObject(Main.user);
@@ -22,7 +18,6 @@ public class Operations {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        return msg;
     }
 
     public static String addToCart(Product p) {
