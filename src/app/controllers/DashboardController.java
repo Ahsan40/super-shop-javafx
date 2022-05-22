@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.classes.Product;
 import app.main.Config;
 import app.main.Main;
 import javafx.fxml.FXML;
@@ -20,12 +21,27 @@ public class DashboardController implements Initializable {
     @FXML
     private Text txtUserName;
 
+    @FXML
+    private Text txtTotalItemCount;
+
+    @FXML
+    private Text txtTotalSpend;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Init
         txtUserName.setText(Main.user.getName());
         txtCartItemsCount.setText(Main.cart.getCartSize() + "");
         txtBalance.setText(Main.balance + "");
+        txtTotalSpend.setText(getAllPrice() + "");
+        txtTotalItemCount.setText(Main.history.size() + "");
+    }
+
+    private double getAllPrice() {
+        double sum = 0;
+        for (Product p: Main.history)
+            sum += p.getPrice();
+        return sum;
     }
 
     @FXML

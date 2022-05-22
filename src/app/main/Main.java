@@ -1,6 +1,7 @@
 package app.main;
 
 import app.classes.Cart;
+import app.classes.Product;
 import app.classes.User;
 import app.utils.SceneManager;
 import app.utils.Size;
@@ -15,6 +16,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -23,6 +25,7 @@ public class Main extends Application {
     public static Cart cart;
     public static double balance;
     public static HashMap<String, User> users;
+    public static ArrayList<Product> history;
     public static SceneManager sceneMan;
     public static Socket sc;
     public static ObjectOutputStream sendObj;
@@ -37,6 +40,7 @@ public class Main extends Application {
         // temp init
         cart = new Cart();
         balance = 0;
+        history = new ArrayList<>();
 
         // Scene Configs
         stage.setTitle(Config.title + " " + Config.version);
