@@ -23,7 +23,6 @@ import java.util.Objects;
 public class Main extends Application {
     public static User user;
     public static Cart cart;
-    public static HashMap<String, User> users;
     public static ArrayList<Product> history;
     public static ArrayList<Product> allProducts;
     public static SceneManager sceneMan;
@@ -37,11 +36,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws URISyntaxException {
-        // temp init
-        cart = new Cart();
-        history = new ArrayList<>();
-        allProducts = new ArrayList<>();
-
         // Scene Configs
         stage.setTitle(Config.title + " " + Config.version);
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource(Config.icon)).toURI().toString()));
