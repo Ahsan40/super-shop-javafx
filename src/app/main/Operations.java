@@ -58,6 +58,6 @@ public class Operations {
         Main.allProducts = null;
         Main.cart = null;
         Main.history = null;
-        Main.sceneMan.open("login", Config.signInPage);
+        Main.sceneMan.open("login", Config.signInPage, 400, 650);
     }
 }
