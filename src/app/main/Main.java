@@ -40,6 +40,7 @@ public class Main extends Application {
         // temp init
         cart = new Cart();
         history = new ArrayList<>();
+        allProducts = new ArrayList<>();
 
         // Scene Configs
         stage.setTitle(Config.title + " " + Config.version);
