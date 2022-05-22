@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="460.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.DashboardController">
+<AnchorPane prefHeight="460.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.ShopController">
    <children>
       <AnchorPane layoutX="7.0" layoutY="161.0" prefHeight="280.0" prefWidth="209.0" style="-fx-background-color: #F2F2F2;">
          <children>
@@ -77,8 +81,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="233.0" layoutY="188.0" prefHeight="174.0" prefWidth="241.0" style="-fx-border-color: #F24A72; -fx-border-radius: 50;" />
-      <AnchorPane layoutX="485.0" layoutY="188.0" prefHeight="174.0" prefWidth="241.0" style="-fx-border-color: #00AFC1; -fx-border-radius: 50;" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="705.0" layoutY="416.0" onMouseClicked="#btnLogoutAction" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/001-logout.png" />
@@ -95,5 +97,23 @@
             <Font size="12.0" />
          </font>
       </Text>
+      <TableView fx:id="table" layoutX="233.0" layoutY="107.0" prefHeight="284.0" prefWidth="499.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="246.98182678222656" text="Product Name" />
+          <TableColumn fx:id="colPrice" minWidth="0.0" prefWidth="146.61822509765625" text="Price" />
+            <TableColumn fx:id="colQuantity" prefWidth="104.7271728515625" text="Available Quan." />
+        </columns>
+      </TableView>
+      <Button layoutX="243.0" layoutY="404.0" mnemonicParsing="false" onAction="#btnAddToCartAction" text="Add To Cart">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfSearch" layoutX="375.0" layoutY="403.0" prefHeight="39.0" prefWidth="194.0" promptText="Type Product Name to  Search" />
+      <Button layoutX="584.0" layoutY="404.0" mnemonicParsing="false" onAction="#btnSearchAction" prefHeight="39.0" prefWidth="100.0" text="Search">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

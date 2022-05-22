@@ -26,6 +26,7 @@ public class Main extends Application {
     public static double balance;
     public static HashMap<String, User> users;
     public static ArrayList<Product> history;
+    public static ArrayList<Product> allProducts;
     public static SceneManager sceneMan;
     public static Socket sc;
     public static ObjectOutputStream sendObj;
