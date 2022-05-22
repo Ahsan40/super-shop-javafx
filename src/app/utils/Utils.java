@@ -1,5 +1,6 @@
 package app.utils;
 
+import app.classes.Product;
 import app.main.Config;
 import app.main.Main;
 import app.classes.User;
@@ -12,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class Utils {
@@ -31,6 +33,23 @@ public class Utils {
             throw new RuntimeException(ex);
         }
     }
+
+    public static <T> T fetchData(String str, User user) {
+        T data;
+        try {
+            Main.sendObj.writeObject(str);
+            if (user != null)
+                Main.sendObj.writeObject(user);
+            data = (T) Main.receiveObj.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return data;
+    }
+
+    public static <T> T fetchData(String str) {
+        return fetchData(str, null);
+    }
     public static boolean checkLogin(User userData, ObjectInputStream receiveObj, ObjectOutputStream sendObj) {
         try {
             // sending credentials
@@ -46,8 +65,18 @@ public class Utils {
             if (response.equalsIgnoreCase("SUCCESS")) {
                 System.out.println(" - Received logged user info from server");
                 Main.user = (User) receiveObj.readObject();
-                System.out.println(" - Saving user info for later use");
-                FileIO.writeObjToFile(Main.user, Config.userTempData);    // writing info to a temp file
+
+
+                // fetching data
+                System.out.println(" - Received product info from server");
+                Main.allProducts = fetchData("getProductList");
+
+                System.out.println(" - Received user cart info from server");
+                Main.cart = fetchData("getCart", Main.user);
+
+                System.out.println(" - Received user purchases info from server");
+                Main.history = fetchData("getHistory", Main.user);
+//                FileIO.writeObjToFile(Main.user, Config.userTempData);    // writing info to a temp file
                 return true;
             }
         } catch (IOException | ClassNotFoundException e) {
