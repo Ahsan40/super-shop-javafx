@@ -20,9 +20,19 @@ public class Operations {
         }
     }
 
-    public static String addToCart(Product p) {
+    public static void addToCart(Product p) {
         // add to Main.cart as well
-        return "";
+        try {
+            Main.sendObj.writeObject("addToCart");
+            Main.sendObj.writeObject(Main.user);
+            Main.sendObj.writeObject(p);
+            String res  =  (String) Main.receiveObj.readObject();
+            if (res.equalsIgnoreCase("SUCCESS")) {
+                Main.cart.add(p);
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static String buy(Cart cart) {
