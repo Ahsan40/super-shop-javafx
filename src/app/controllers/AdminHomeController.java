@@ -1,15 +1,20 @@
 package app.controllers;
 
+import app.classes.Product;
 import app.main.Main;
 import app.classes.User;
+import app.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.Map;
@@ -17,43 +22,93 @@ import java.util.ResourceBundle;
 
 public class AdminHomeController implements Initializable {
 
-    @FXML
-    private TableColumn<User, String> colEmail;
 
     @FXML
-    private TableColumn<User, String> colMobile;
+    private TableColumn<Product, String> colName;
 
     @FXML
-    private TableColumn<User, String> colName;
+    private TableColumn<Product, Double> colPrice;
 
     @FXML
-    private TableColumn<User, String> colType;
+    private TableColumn<Product, Integer> colQuantity;
 
     @FXML
-    private TableView<User> table;
+    private TableView<Product> table;
 
+    @FXML
+    private TextField tfName;
+
+    @FXML
+    private TextField tfPrice;
+
+    @FXML
+    private TextField tfQuantity;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // table
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
-        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         new Thread(() -> {
-            table.setItems(getUsers());
+            table.setItems(getProduct());
         }).start();
     }
 
-    public ObservableList<User> getUsers() {
-        ObservableList<User> allUsers = FXCollections.observableArrayList();
-//        for (Map.Entry<String, User> u : Main.users.entrySet()) {
-//            allUsers.addAll(u.getValue());
-//        }
+
+    @FXML
+    void btnAddAction(ActionEvent event) {
+        // Verification
+        String name  = tfName.getText();
+        double price;
+        int quantity;
+        if (name.isEmpty()) {
+            Utils.alert("Error!", "Name can not be empty!", "warning");
+            return;
+        }
+        try {
+            price = Double.parseDouble(tfPrice.getText());
+            quantity = Integer.parseInt(tfQuantity.getText());
+        } catch (NumberFormatException e) {
+            Utils.alert("Error!", "Please input numbers only!", "warning");
+            return;
+        }
+
+        // Adding
+        Product p = new Product(name, price, quantity);
+        try {
+            Main.sendObj.writeObject("addProduct");
+            Main.sendObj.writeObject(p);
+            Main.allProducts.add(p);
+            table.getItems().add(p);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void btnRemoveAction(ActionEvent event) {
+        Product p = table.getSelectionModel().getSelectedItem();
+        if (p != null) {
+            try {
+                Main.sendObj.writeObject("removeProduct");
+                Main.sendObj.writeObject(p);
+                Main.allProducts.remove(p);
+                table.getItems().remove(p);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else
+            Utils.alert("Warning!", "Please add products first to remove!", "warning");
+    }
+
+    public ObservableList<Product> getProduct() {
+        ObservableList<Product> products = FXCollections.observableArrayList();
+        products.addAll(Main.allProducts);
 
         // sort by Line No.
-        allUsers.sort(Comparator.comparing(User::getName));
-        return allUsers;
+        products.sort(Comparator.comparing(Product::getName));
+        return products;
     }
 }
