@@ -44,7 +44,7 @@ public class CartController implements Initializable {
     private TableView<Product> table;
 
     @FXML
-    private TextField tfSearch;
+    private Text txtTotalAmount;
 
 
     @Override
@@ -53,6 +53,7 @@ public class CartController implements Initializable {
         txtUserName.setText(Main.user.getName());
         txtCartItemsCount.setText(Main.cart.getCartSize() + "");
         txtBalance.setText(Main.user.getBalance() + "");
+        txtTotalAmount.setText(Main.cart.getTotal() + "");
 
         // Table
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -62,37 +63,32 @@ public class CartController implements Initializable {
     }
     private ObservableList<Product> getProducts () {
         ObservableList<Product> list = FXCollections.observableArrayList();
-        list.addAll(Main.allProducts);
+        list.addAll(Main.cart.getCartList());
         list.sort(Comparator.comparing(Product::getName));
         return list;
     }
 
+
     @FXML
-    void btnAddToCartAction(ActionEvent event) {
-        Product p = table.getSelectionModel().getSelectedItem();
-        if (p != null) {
-            Operations.addToCart(p);
+    void btnBuyAction(ActionEvent event) {
+        if (Main.user.getBalance() < Main.cart.getTotal())
+            Utils.alert("Warning!", "Insufficient Balance!", "warning");
+        else {
+            Operations.buy(Main.cart);
+            table.getItems().clear();
+            txtBalance.setText(Main.user.getBalance() + "");
             txtCartItemsCount.setText(Main.cart.getCartSize() + "");
+            txtTotalAmount.setText(Main.cart.getTotal() + "");
         }
-        else
-            Utils.alert("Warning!", "Please select an item first!", "Warning");
     }
 
 
     @FXML
-    void btnSearchAction(ActionEvent event) {
-        String str = tfSearch.getText();
-        if (str.isEmpty())
-            table.setItems(getProducts());
-        else {
-            ObservableList<Product> list = FXCollections.observableArrayList();
-            for (Product p: Main.allProducts) {
-                if (p.getName().toLowerCase().contains(str.toLowerCase()))
-                    list.add(p);
-            }
-            list.sort(Comparator.comparing(Product::getName));
-            table.setItems(list);
-        }
+    void btnRemoveAction(ActionEvent event) {
+        Product p = table.getSelectionModel().getSelectedItem();
+        Main.cart.remove(p);
+        table.getItems().remove(p);
+        txtTotalAmount.setText(Main.cart.getTotal() + "");
     }
 
 
